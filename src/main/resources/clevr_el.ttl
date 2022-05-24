@@ -1,0 +1,2738 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.com/> .
+
+<ClevrEL> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/hasBehind
+:hasBehind rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasNear ;
+           rdf:type owl:TransitiveProperty .
+
+
+###  http://example.com/hasDirectlyBehind
+:hasDirectlyBehind rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :hasBehind ,
+                                      :hasDirectlyNear .
+
+
+###  http://example.com/hasDirectlyNear
+:hasDirectlyNear rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasNear .
+
+
+###  http://example.com/hasDirectlyOnFront
+:hasDirectlyOnFront rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :hasDirectlyNear ,
+                                       :hasOnFront .
+
+
+###  http://example.com/hasDirectlyOnLeft
+:hasDirectlyOnLeft rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :hasDirectlyNear ,
+                                      :hasOnLeft .
+
+
+###  http://example.com/hasDirectlyOnRight
+:hasDirectlyOnRight rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :hasDirectlyNear ,
+                                       :hasOnRight .
+
+
+###  http://example.com/hasNear
+:hasNear rdf:type owl:ObjectProperty ,
+                  owl:TransitiveProperty ;
+         rdfs:domain :Object ;
+         rdfs:range :Object .
+
+
+###  http://example.com/hasOnFront
+:hasOnFront rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasNear ;
+            rdf:type owl:TransitiveProperty .
+
+
+###  http://example.com/hasOnLeft
+:hasOnLeft rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasNear ;
+           rdf:type owl:TransitiveProperty .
+
+
+###  http://example.com/hasOnRight
+:hasOnRight rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasNear ;
+            rdf:type owl:TransitiveProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/BlueCubeLargeObject
+:BlueCubeLargeObject rdf:type owl:Class ;
+                     rdfs:subClassOf :BlueCubeObject ,
+                                     :BlueLargeObject ,
+                                     :ColoredShapedSizedObject ,
+                                     :CubeLargeObject .
+
+
+###  http://example.com/BlueCubeObject
+:BlueCubeObject rdf:type owl:Class ;
+                rdfs:subClassOf :BlueObject ,
+                                :ColoredShapedObject ,
+                                :CubeObject .
+
+
+###  http://example.com/BlueCubeSmallObject
+:BlueCubeSmallObject rdf:type owl:Class ;
+                     rdfs:subClassOf :BlueCubeObject ,
+                                     :BlueSmallObject ,
+                                     :ColoredShapedSizedObject ,
+                                     :CubeSmallObject .
+
+
+###  http://example.com/BlueCylinderLargeObject
+:BlueCylinderLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :BlueCylinderObject ,
+                                         :BlueLargeObject ,
+                                         :ColoredShapedSizedObject ,
+                                         :CylinderLargeObject .
+
+
+###  http://example.com/BlueCylinderObject
+:BlueCylinderObject rdf:type owl:Class ;
+                    rdfs:subClassOf :BlueObject ,
+                                    :ColoredShapedObject ,
+                                    :CylinderObject .
+
+
+###  http://example.com/BlueCylinderSmallObject
+:BlueCylinderSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :BlueCylinderObject ,
+                                         :BlueSmallObject ,
+                                         :ColoredShapedSizedObject ,
+                                         :CylinderSmallObject .
+
+
+###  http://example.com/BlueLargeObject
+:BlueLargeObject rdf:type owl:Class ;
+                 rdfs:subClassOf :BlueObject ,
+                                 :ColoredSizedObject ,
+                                 :LargeObject .
+
+
+###  http://example.com/BlueMetallicCubeLargeObject
+:BlueMetallicCubeLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :BlueCubeLargeObject ,
+                                             :BlueMetallicCubeObject ,
+                                             :BlueMetallicLargeObject ,
+                                             :ColoredMaterialShapedSizedObject ,
+                                             :MetallicCubeLargeObject .
+
+
+###  http://example.com/BlueMetallicCubeObject
+:BlueMetallicCubeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :BlueCubeObject ,
+                                        :BlueMetallicObject ,
+                                        :ColoredMaterialShapedObject ,
+                                        :MetallicCubeObject .
+
+
+###  http://example.com/BlueMetallicCubeSmallObject
+:BlueMetallicCubeSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :BlueCubeSmallObject ,
+                                             :BlueMetallicCubeObject ,
+                                             :BlueMetallicSmallObject ,
+                                             :ColoredMaterialShapedSizedObject ,
+                                             :MetallicCubeSmallObject .
+
+
+###  http://example.com/BlueMetallicCylinderLargeObject
+:BlueMetallicCylinderLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :BlueCylinderLargeObject ,
+                                                 :BlueMetallicCylinderObject ,
+                                                 :BlueMetallicLargeObject ,
+                                                 :ColoredMaterialShapedSizedObject ,
+                                                 :MetallicCylinderLargeObject .
+
+
+###  http://example.com/BlueMetallicCylinderObject
+:BlueMetallicCylinderObject rdf:type owl:Class ;
+                            rdfs:subClassOf :BlueCylinderObject ,
+                                            :BlueMetallicObject ,
+                                            :ColoredMaterialShapedObject ,
+                                            :MetallicCylinderObject .
+
+
+###  http://example.com/BlueMetallicCylinderSmallObject
+:BlueMetallicCylinderSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :BlueCylinderSmallObject ,
+                                                 :BlueMetallicCylinderObject ,
+                                                 :BlueMetallicSmallObject ,
+                                                 :ColoredMaterialShapedSizedObject ,
+                                                 :MetallicCylinderSmallObject .
+
+
+###  http://example.com/BlueMetallicLargeObject
+:BlueMetallicLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :BlueLargeObject ,
+                                         :BlueMetallicObject ,
+                                         :ColoredMaterialSizedObject ,
+                                         :MetallicLargeObject .
+
+
+###  http://example.com/BlueMetallicObject
+:BlueMetallicObject rdf:type owl:Class ;
+                    rdfs:subClassOf :BlueObject ,
+                                    :ColoredMaterialObject ,
+                                    :MetallicObject .
+
+
+###  http://example.com/BlueMetallicSmallObject
+:BlueMetallicSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :BlueMetallicObject ,
+                                         :BlueSmallObject ,
+                                         :ColoredMaterialSizedObject ,
+                                         :MetallicSmallObject .
+
+
+###  http://example.com/BlueMetallicSphereLargeObject
+:BlueMetallicSphereLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :BlueMetallicLargeObject ,
+                                               :BlueMetallicSphereObject ,
+                                               :BlueSphereLargeObject ,
+                                               :ColoredMaterialShapedSizedObject ,
+                                               :MetallicSphereLargeObject .
+
+
+###  http://example.com/BlueMetallicSphereObject
+:BlueMetallicSphereObject rdf:type owl:Class ;
+                          rdfs:subClassOf :BlueMetallicObject ,
+                                          :BlueSphereObject ,
+                                          :ColoredMaterialShapedObject ,
+                                          :MetallicSphereObject .
+
+
+###  http://example.com/BlueMetallicSphereSmallObject
+:BlueMetallicSphereSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :BlueMetallicSmallObject ,
+                                               :BlueMetallicSphereObject ,
+                                               :BlueSphereSmallObject ,
+                                               :ColoredMaterialShapedSizedObject ,
+                                               :MetallicSphereSmallObject .
+
+
+###  http://example.com/BlueObject
+:BlueObject rdf:type owl:Class ;
+            rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/BlueRubberCubeLargeObject
+:BlueRubberCubeLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :BlueCubeLargeObject ,
+                                           :BlueRubberCubeObject ,
+                                           :BlueRubberLargeObject ,
+                                           :ColoredMaterialShapedSizedObject ,
+                                           :RubberCubeLargeObject .
+
+
+###  http://example.com/BlueRubberCubeObject
+:BlueRubberCubeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :BlueCubeObject ,
+                                      :BlueRubberObject ,
+                                      :ColoredMaterialShapedObject ,
+                                      :RubberCubeObject .
+
+
+###  http://example.com/BlueRubberCubeSmallObject
+:BlueRubberCubeSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :BlueCubeSmallObject ,
+                                           :BlueRubberCubeObject ,
+                                           :BlueRubberSmallObject ,
+                                           :ColoredMaterialShapedSizedObject ,
+                                           :RubberCubeSmallObject .
+
+
+###  http://example.com/BlueRubberCylinderLargeObject
+:BlueRubberCylinderLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :BlueCylinderLargeObject ,
+                                               :BlueRubberCylinderObject ,
+                                               :BlueRubberLargeObject ,
+                                               :ColoredMaterialShapedSizedObject ,
+                                               :RubberCylinderLargeObject .
+
+
+###  http://example.com/BlueRubberCylinderObject
+:BlueRubberCylinderObject rdf:type owl:Class ;
+                          rdfs:subClassOf :BlueCylinderObject ,
+                                          :BlueRubberObject ,
+                                          :ColoredMaterialShapedObject ,
+                                          :RubberCylinderObject .
+
+
+###  http://example.com/BlueRubberCylinderSmallObject
+:BlueRubberCylinderSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :BlueCylinderSmallObject ,
+                                               :BlueRubberCylinderObject ,
+                                               :BlueRubberSmallObject ,
+                                               :ColoredMaterialShapedSizedObject ,
+                                               :RubberCylinderSmallObject .
+
+
+###  http://example.com/BlueRubberLargeObject
+:BlueRubberLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :BlueLargeObject ,
+                                       :BlueRubberObject ,
+                                       :ColoredMaterialSizedObject ,
+                                       :RubberLargeObject .
+
+
+###  http://example.com/BlueRubberObject
+:BlueRubberObject rdf:type owl:Class ;
+                  rdfs:subClassOf :BlueObject ,
+                                  :ColoredMaterialObject ,
+                                  :RubberObject .
+
+
+###  http://example.com/BlueRubberSmallObject
+:BlueRubberSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :BlueRubberObject ,
+                                       :BlueSmallObject ,
+                                       :ColoredMaterialSizedObject ,
+                                       :RubberSmallObject .
+
+
+###  http://example.com/BlueRubberSphereLargeObject
+:BlueRubberSphereLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :BlueRubberLargeObject ,
+                                             :BlueRubberSphereObject ,
+                                             :BlueSphereLargeObject ,
+                                             :ColoredMaterialShapedSizedObject ,
+                                             :RubberSphereLargeObject .
+
+
+###  http://example.com/BlueRubberSphereObject
+:BlueRubberSphereObject rdf:type owl:Class ;
+                        rdfs:subClassOf :BlueRubberObject ,
+                                        :BlueSphereObject ,
+                                        :ColoredMaterialShapedObject ,
+                                        :RubberSphereObject .
+
+
+###  http://example.com/BlueRubberSphereSmallObject
+:BlueRubberSphereSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :BlueRubberSmallObject ,
+                                             :BlueRubberSphereObject ,
+                                             :BlueSphereSmallObject ,
+                                             :ColoredMaterialShapedSizedObject ,
+                                             :RubberSphereSmallObject .
+
+
+###  http://example.com/BlueSmallObject
+:BlueSmallObject rdf:type owl:Class ;
+                 rdfs:subClassOf :BlueObject ,
+                                 :ColoredSizedObject ,
+                                 :SmallObject .
+
+
+###  http://example.com/BlueSphereLargeObject
+:BlueSphereLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :BlueLargeObject ,
+                                       :BlueSphereObject ,
+                                       :ColoredShapedSizedObject ,
+                                       :SphereLargeObject .
+
+
+###  http://example.com/BlueSphereObject
+:BlueSphereObject rdf:type owl:Class ;
+                  rdfs:subClassOf :BlueObject ,
+                                  :ColoredShapedObject ,
+                                  :SphereObject .
+
+
+###  http://example.com/BlueSphereSmallObject
+:BlueSphereSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :BlueSmallObject ,
+                                       :BlueSphereObject ,
+                                       :ColoredShapedSizedObject ,
+                                       :SphereSmallObject .
+
+
+###  http://example.com/BrownCubeLargeObject
+:BrownCubeLargeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :BrownCubeObject ,
+                                      :BrownLargeObject ,
+                                      :ColoredShapedSizedObject ,
+                                      :CubeLargeObject .
+
+
+###  http://example.com/BrownCubeObject
+:BrownCubeObject rdf:type owl:Class ;
+                 rdfs:subClassOf :BrownObject ,
+                                 :ColoredShapedObject ,
+                                 :CubeObject .
+
+
+###  http://example.com/BrownCubeSmallObject
+:BrownCubeSmallObject rdf:type owl:Class ;
+                      rdfs:subClassOf :BrownCubeObject ,
+                                      :BrownSmallObject ,
+                                      :ColoredShapedSizedObject ,
+                                      :CubeSmallObject .
+
+
+###  http://example.com/BrownCylinderLargeObject
+:BrownCylinderLargeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :BrownCylinderObject ,
+                                          :BrownLargeObject ,
+                                          :ColoredShapedSizedObject ,
+                                          :CylinderLargeObject .
+
+
+###  http://example.com/BrownCylinderObject
+:BrownCylinderObject rdf:type owl:Class ;
+                     rdfs:subClassOf :BrownObject ,
+                                     :ColoredShapedObject ,
+                                     :CylinderObject .
+
+
+###  http://example.com/BrownCylinderSmallObject
+:BrownCylinderSmallObject rdf:type owl:Class ;
+                          rdfs:subClassOf :BrownCylinderObject ,
+                                          :BrownSmallObject ,
+                                          :ColoredShapedSizedObject ,
+                                          :CylinderSmallObject .
+
+
+###  http://example.com/BrownLargeObject
+:BrownLargeObject rdf:type owl:Class ;
+                  rdfs:subClassOf :BrownObject ,
+                                  :ColoredSizedObject ,
+                                  :LargeObject .
+
+
+###  http://example.com/BrownMetallicCubeLargeObject
+:BrownMetallicCubeLargeObject rdf:type owl:Class ;
+                              rdfs:subClassOf :BrownCubeLargeObject ,
+                                              :BrownMetallicCubeObject ,
+                                              :BrownMetallicLargeObject ,
+                                              :ColoredMaterialShapedSizedObject ,
+                                              :MetallicCubeLargeObject .
+
+
+###  http://example.com/BrownMetallicCubeObject
+:BrownMetallicCubeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :BrownCubeObject ,
+                                         :BrownMetallicObject ,
+                                         :ColoredMaterialShapedObject ,
+                                         :MetallicCubeObject .
+
+
+###  http://example.com/BrownMetallicCubeSmallObject
+:BrownMetallicCubeSmallObject rdf:type owl:Class ;
+                              rdfs:subClassOf :BrownCubeSmallObject ,
+                                              :BrownMetallicCubeObject ,
+                                              :BrownMetallicSmallObject ,
+                                              :ColoredMaterialShapedSizedObject ,
+                                              :MetallicCubeSmallObject .
+
+
+###  http://example.com/BrownMetallicCylinderLargeObject
+:BrownMetallicCylinderLargeObject rdf:type owl:Class ;
+                                  rdfs:subClassOf :BrownCylinderLargeObject ,
+                                                  :BrownMetallicCylinderObject ,
+                                                  :BrownMetallicLargeObject ,
+                                                  :ColoredMaterialShapedSizedObject ,
+                                                  :MetallicCylinderLargeObject .
+
+
+###  http://example.com/BrownMetallicCylinderObject
+:BrownMetallicCylinderObject rdf:type owl:Class ;
+                             rdfs:subClassOf :BrownCylinderObject ,
+                                             :BrownMetallicObject ,
+                                             :ColoredMaterialShapedObject ,
+                                             :MetallicCylinderObject .
+
+
+###  http://example.com/BrownMetallicCylinderSmallObject
+:BrownMetallicCylinderSmallObject rdf:type owl:Class ;
+                                  rdfs:subClassOf :BrownCylinderSmallObject ,
+                                                  :BrownMetallicCylinderObject ,
+                                                  :BrownMetallicSmallObject ,
+                                                  :ColoredMaterialShapedSizedObject ,
+                                                  :MetallicCylinderSmallObject .
+
+
+###  http://example.com/BrownMetallicLargeObject
+:BrownMetallicLargeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :BrownLargeObject ,
+                                          :BrownMetallicObject ,
+                                          :ColoredMaterialSizedObject ,
+                                          :MetallicLargeObject .
+
+
+###  http://example.com/BrownMetallicObject
+:BrownMetallicObject rdf:type owl:Class ;
+                     rdfs:subClassOf :BrownObject ,
+                                     :ColoredMaterialObject ,
+                                     :MetallicObject .
+
+
+###  http://example.com/BrownMetallicSmallObject
+:BrownMetallicSmallObject rdf:type owl:Class ;
+                          rdfs:subClassOf :BrownMetallicObject ,
+                                          :BrownSmallObject ,
+                                          :ColoredMaterialSizedObject ,
+                                          :MetallicSmallObject .
+
+
+###  http://example.com/BrownMetallicSphereLargeObject
+:BrownMetallicSphereLargeObject rdf:type owl:Class ;
+                                rdfs:subClassOf :BrownMetallicLargeObject ,
+                                                :BrownMetallicSphereObject ,
+                                                :BrownSphereLargeObject ,
+                                                :ColoredMaterialShapedSizedObject ,
+                                                :MetallicSphereLargeObject .
+
+
+###  http://example.com/BrownMetallicSphereObject
+:BrownMetallicSphereObject rdf:type owl:Class ;
+                           rdfs:subClassOf :BrownMetallicObject ,
+                                           :BrownSphereObject ,
+                                           :ColoredMaterialShapedObject ,
+                                           :MetallicSphereObject .
+
+
+###  http://example.com/BrownMetallicSphereSmallObject
+:BrownMetallicSphereSmallObject rdf:type owl:Class ;
+                                rdfs:subClassOf :BrownMetallicSmallObject ,
+                                                :BrownMetallicSphereObject ,
+                                                :BrownSphereSmallObject ,
+                                                :ColoredMaterialShapedSizedObject ,
+                                                :MetallicSphereSmallObject .
+
+
+###  http://example.com/BrownObject
+:BrownObject rdf:type owl:Class ;
+             rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/BrownRubberCubeLargeObject
+:BrownRubberCubeLargeObject rdf:type owl:Class ;
+                            rdfs:subClassOf :BrownCubeLargeObject ,
+                                            :BrownRubberCubeObject ,
+                                            :BrownRubberLargeObject ,
+                                            :ColoredMaterialShapedSizedObject ,
+                                            :RubberCubeLargeObject .
+
+
+###  http://example.com/BrownRubberCubeObject
+:BrownRubberCubeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :BrownCubeObject ,
+                                       :BrownRubberObject ,
+                                       :ColoredMaterialShapedObject ,
+                                       :RubberCubeObject .
+
+
+###  http://example.com/BrownRubberCubeSmallObject
+:BrownRubberCubeSmallObject rdf:type owl:Class ;
+                            rdfs:subClassOf :BrownCubeSmallObject ,
+                                            :BrownRubberCubeObject ,
+                                            :BrownRubberSmallObject ,
+                                            :ColoredMaterialShapedSizedObject ,
+                                            :RubberCubeSmallObject .
+
+
+###  http://example.com/BrownRubberCylinderLargeObject
+:BrownRubberCylinderLargeObject rdf:type owl:Class ;
+                                rdfs:subClassOf :BrownCylinderLargeObject ,
+                                                :BrownRubberCylinderObject ,
+                                                :BrownRubberLargeObject ,
+                                                :ColoredMaterialShapedSizedObject ,
+                                                :RubberCylinderLargeObject .
+
+
+###  http://example.com/BrownRubberCylinderObject
+:BrownRubberCylinderObject rdf:type owl:Class ;
+                           rdfs:subClassOf :BrownCylinderObject ,
+                                           :BrownRubberObject ,
+                                           :ColoredMaterialShapedObject ,
+                                           :RubberCylinderObject .
+
+
+###  http://example.com/BrownRubberCylinderSmallObject
+:BrownRubberCylinderSmallObject rdf:type owl:Class ;
+                                rdfs:subClassOf :BrownCylinderSmallObject ,
+                                                :BrownRubberCylinderObject ,
+                                                :BrownRubberSmallObject ,
+                                                :ColoredMaterialShapedSizedObject ,
+                                                :RubberCylinderSmallObject .
+
+
+###  http://example.com/BrownRubberLargeObject
+:BrownRubberLargeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :BrownLargeObject ,
+                                        :BrownRubberObject ,
+                                        :ColoredMaterialSizedObject ,
+                                        :RubberLargeObject .
+
+
+###  http://example.com/BrownRubberObject
+:BrownRubberObject rdf:type owl:Class ;
+                   rdfs:subClassOf :BrownObject ,
+                                   :ColoredMaterialObject ,
+                                   :RubberObject .
+
+
+###  http://example.com/BrownRubberSmallObject
+:BrownRubberSmallObject rdf:type owl:Class ;
+                        rdfs:subClassOf :BrownRubberObject ,
+                                        :BrownSmallObject ,
+                                        :ColoredMaterialSizedObject ,
+                                        :RubberSmallObject .
+
+
+###  http://example.com/BrownRubberSphereLargeObject
+:BrownRubberSphereLargeObject rdf:type owl:Class ;
+                              rdfs:subClassOf :BrownRubberLargeObject ,
+                                              :BrownRubberSphereObject ,
+                                              :BrownSphereLargeObject ,
+                                              :ColoredMaterialShapedSizedObject ,
+                                              :RubberSphereLargeObject .
+
+
+###  http://example.com/BrownRubberSphereObject
+:BrownRubberSphereObject rdf:type owl:Class ;
+                         rdfs:subClassOf :BrownRubberObject ,
+                                         :BrownSphereObject ,
+                                         :ColoredMaterialShapedObject ,
+                                         :RubberSphereObject .
+
+
+###  http://example.com/BrownRubberSphereSmallObject
+:BrownRubberSphereSmallObject rdf:type owl:Class ;
+                              rdfs:subClassOf :BrownRubberSmallObject ,
+                                              :BrownRubberSphereObject ,
+                                              :BrownSphereSmallObject ,
+                                              :ColoredMaterialShapedSizedObject ,
+                                              :RubberSphereSmallObject .
+
+
+###  http://example.com/BrownSmallObject
+:BrownSmallObject rdf:type owl:Class ;
+                  rdfs:subClassOf :BrownObject ,
+                                  :ColoredSizedObject ,
+                                  :SmallObject .
+
+
+###  http://example.com/BrownSphereLargeObject
+:BrownSphereLargeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :BrownLargeObject ,
+                                        :BrownSphereObject ,
+                                        :ColoredShapedSizedObject ,
+                                        :SphereLargeObject .
+
+
+###  http://example.com/BrownSphereObject
+:BrownSphereObject rdf:type owl:Class ;
+                   rdfs:subClassOf :BrownObject ,
+                                   :ColoredShapedObject ,
+                                   :SphereObject .
+
+
+###  http://example.com/BrownSphereSmallObject
+:BrownSphereSmallObject rdf:type owl:Class ;
+                        rdfs:subClassOf :BrownSmallObject ,
+                                        :BrownSphereObject ,
+                                        :ColoredShapedSizedObject ,
+                                        :SphereSmallObject .
+
+
+###  http://example.com/ColoredMaterialObject
+:ColoredMaterialObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredObject ,
+                                       :MaterialObject .
+
+
+###  http://example.com/ColoredMaterialShapedObject
+:ColoredMaterialShapedObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialObject ,
+                                             :ColoredShapedObject ,
+                                             :MaterialShapedObject .
+
+
+###  http://example.com/ColoredMaterialShapedSizedObject
+:ColoredMaterialShapedSizedObject rdf:type owl:Class ;
+                                  rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                                  :ColoredMaterialSizedObject ,
+                                                  :ColoredShapedSizedObject ,
+                                                  :MaterialShapedSizedObject .
+
+
+###  http://example.com/ColoredMaterialSizedObject
+:ColoredMaterialSizedObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialObject ,
+                                            :ColoredSizedObject ,
+                                            :MaterialSizedObject .
+
+
+###  http://example.com/ColoredObject
+:ColoredObject rdf:type owl:Class ;
+               rdfs:subClassOf :Object .
+
+
+###  http://example.com/ColoredShapedObject
+:ColoredShapedObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredObject ,
+                                     :ShapedObject .
+
+
+###  http://example.com/ColoredShapedSizedObject
+:ColoredShapedSizedObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredShapedObject ,
+                                          :ColoredSizedObject ,
+                                          :ShapedSizedObject .
+
+
+###  http://example.com/ColoredSizedObject
+:ColoredSizedObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredObject ,
+                                    :SizedObject .
+
+
+###  http://example.com/CubeLargeObject
+:CubeLargeObject rdf:type owl:Class ;
+                 rdfs:subClassOf :CubeObject ,
+                                 :LargeObject ,
+                                 :ShapedSizedObject .
+
+
+###  http://example.com/CubeObject
+:CubeObject rdf:type owl:Class ;
+            rdfs:subClassOf :ShapedObject .
+
+
+###  http://example.com/CubeSmallObject
+:CubeSmallObject rdf:type owl:Class ;
+                 rdfs:subClassOf :CubeObject ,
+                                 :ShapedSizedObject ,
+                                 :SmallObject .
+
+
+###  http://example.com/CyanCubeLargeObject
+:CyanCubeLargeObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredShapedSizedObject ,
+                                     :CubeLargeObject ,
+                                     :CyanCubeObject ,
+                                     :CyanLargeObject .
+
+
+###  http://example.com/CyanCubeObject
+:CyanCubeObject rdf:type owl:Class ;
+                rdfs:subClassOf :ColoredShapedObject ,
+                                :CubeObject ,
+                                :CyanObject .
+
+
+###  http://example.com/CyanCubeSmallObject
+:CyanCubeSmallObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredShapedSizedObject ,
+                                     :CubeSmallObject ,
+                                     :CyanCubeObject ,
+                                     :CyanSmallObject .
+
+
+###  http://example.com/CyanCylinderLargeObject
+:CyanCylinderLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :CyanCylinderObject ,
+                                         :CyanLargeObject ,
+                                         :CylinderLargeObject .
+
+
+###  http://example.com/CyanCylinderObject
+:CyanCylinderObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredShapedObject ,
+                                    :CyanObject ,
+                                    :CylinderObject .
+
+
+###  http://example.com/CyanCylinderSmallObject
+:CyanCylinderSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :CyanCylinderObject ,
+                                         :CyanSmallObject ,
+                                         :CylinderSmallObject .
+
+
+###  http://example.com/CyanLargeObject
+:CyanLargeObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredSizedObject ,
+                                 :CyanObject ,
+                                 :LargeObject .
+
+
+###  http://example.com/CyanMetallicCubeLargeObject
+:CyanMetallicCubeLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :CyanCubeLargeObject ,
+                                             :CyanMetallicCubeObject ,
+                                             :CyanMetallicLargeObject ,
+                                             :MetallicCubeLargeObject .
+
+
+###  http://example.com/CyanMetallicCubeObject
+:CyanMetallicCubeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                        :CyanCubeObject ,
+                                        :CyanMetallicObject ,
+                                        :MetallicCubeObject .
+
+
+###  http://example.com/CyanMetallicCubeSmallObject
+:CyanMetallicCubeSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :CyanCubeSmallObject ,
+                                             :CyanMetallicCubeObject ,
+                                             :CyanMetallicSmallObject ,
+                                             :MetallicCubeSmallObject .
+
+
+###  http://example.com/CyanMetallicCylinderLargeObject
+:CyanMetallicCylinderLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :CyanCylinderLargeObject ,
+                                                 :CyanMetallicCylinderObject ,
+                                                 :CyanMetallicLargeObject ,
+                                                 :MetallicCylinderLargeObject .
+
+
+###  http://example.com/CyanMetallicCylinderObject
+:CyanMetallicCylinderObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                            :CyanCylinderObject ,
+                                            :CyanMetallicObject ,
+                                            :MetallicCylinderObject .
+
+
+###  http://example.com/CyanMetallicCylinderSmallObject
+:CyanMetallicCylinderSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :CyanCylinderSmallObject ,
+                                                 :CyanMetallicCylinderObject ,
+                                                 :CyanMetallicSmallObject ,
+                                                 :MetallicCylinderSmallObject .
+
+
+###  http://example.com/CyanMetallicLargeObject
+:CyanMetallicLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :CyanLargeObject ,
+                                         :CyanMetallicObject ,
+                                         :MetallicLargeObject .
+
+
+###  http://example.com/CyanMetallicObject
+:CyanMetallicObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredMaterialObject ,
+                                    :CyanObject ,
+                                    :MetallicObject .
+
+
+###  http://example.com/CyanMetallicSmallObject
+:CyanMetallicSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :CyanMetallicObject ,
+                                         :CyanSmallObject ,
+                                         :MetallicSmallObject .
+
+
+###  http://example.com/CyanMetallicSphereLargeObject
+:CyanMetallicSphereLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :CyanMetallicLargeObject ,
+                                               :CyanMetallicSphereObject ,
+                                               :CyanSphereLargeObject ,
+                                               :MetallicSphereLargeObject .
+
+
+###  http://example.com/CyanMetallicSphereObject
+:CyanMetallicSphereObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :CyanMetallicObject ,
+                                          :CyanSphereObject ,
+                                          :MetallicSphereObject .
+
+
+###  http://example.com/CyanMetallicSphereSmallObject
+:CyanMetallicSphereSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :CyanMetallicSmallObject ,
+                                               :CyanMetallicSphereObject ,
+                                               :CyanSphereSmallObject ,
+                                               :MetallicSphereSmallObject .
+
+
+###  http://example.com/CyanObject
+:CyanObject rdf:type owl:Class ;
+            rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/CyanRubberCubeLargeObject
+:CyanRubberCubeLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                           :CyanCubeLargeObject ,
+                                           :CyanRubberCubeObject ,
+                                           :CyanRubberLargeObject ,
+                                           :RubberCubeLargeObject .
+
+
+###  http://example.com/CyanRubberCubeObject
+:CyanRubberCubeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                      :CyanCubeObject ,
+                                      :CyanRubberObject ,
+                                      :RubberCubeObject .
+
+
+###  http://example.com/CyanRubberCubeSmallObject
+:CyanRubberCubeSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                           :CyanCubeSmallObject ,
+                                           :CyanRubberCubeObject ,
+                                           :CyanRubberSmallObject ,
+                                           :RubberCubeSmallObject .
+
+
+###  http://example.com/CyanRubberCylinderLargeObject
+:CyanRubberCylinderLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :CyanCylinderLargeObject ,
+                                               :CyanRubberCylinderObject ,
+                                               :CyanRubberLargeObject ,
+                                               :RubberCylinderLargeObject .
+
+
+###  http://example.com/CyanRubberCylinderObject
+:CyanRubberCylinderObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :CyanCylinderObject ,
+                                          :CyanRubberObject ,
+                                          :RubberCylinderObject .
+
+
+###  http://example.com/CyanRubberCylinderSmallObject
+:CyanRubberCylinderSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :CyanCylinderSmallObject ,
+                                               :CyanRubberCylinderObject ,
+                                               :CyanRubberSmallObject ,
+                                               :RubberCylinderSmallObject .
+
+
+###  http://example.com/CyanRubberLargeObject
+:CyanRubberLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                       :CyanLargeObject ,
+                                       :CyanRubberObject ,
+                                       :RubberLargeObject .
+
+
+###  http://example.com/CyanRubberObject
+:CyanRubberObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredMaterialObject ,
+                                  :CyanObject ,
+                                  :RubberObject .
+
+
+###  http://example.com/CyanRubberSmallObject
+:CyanRubberSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                       :CyanRubberObject ,
+                                       :CyanSmallObject ,
+                                       :RubberSmallObject .
+
+
+###  http://example.com/CyanRubberSphereLargeObject
+:CyanRubberSphereLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :CyanRubberLargeObject ,
+                                             :CyanRubberSphereObject ,
+                                             :CyanSphereLargeObject ,
+                                             :RubberSphereLargeObject .
+
+
+###  http://example.com/CyanRubberSphereObject
+:CyanRubberSphereObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                        :CyanRubberObject ,
+                                        :CyanSphereObject ,
+                                        :RubberSphereObject .
+
+
+###  http://example.com/CyanRubberSphereSmallObject
+:CyanRubberSphereSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :CyanRubberSmallObject ,
+                                             :CyanRubberSphereObject ,
+                                             :CyanSphereSmallObject ,
+                                             :RubberSphereSmallObject .
+
+
+###  http://example.com/CyanSmallObject
+:CyanSmallObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredSizedObject ,
+                                 :CyanObject ,
+                                 :SmallObject .
+
+
+###  http://example.com/CyanSphereLargeObject
+:CyanSphereLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :CyanLargeObject ,
+                                       :CyanSphereObject ,
+                                       :SphereLargeObject .
+
+
+###  http://example.com/CyanSphereObject
+:CyanSphereObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredShapedObject ,
+                                  :CyanObject ,
+                                  :SphereObject .
+
+
+###  http://example.com/CyanSphereSmallObject
+:CyanSphereSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :CyanSmallObject ,
+                                       :CyanSphereObject ,
+                                       :SphereSmallObject .
+
+
+###  http://example.com/CylinderLargeObject
+:CylinderLargeObject rdf:type owl:Class ;
+                     rdfs:subClassOf :CylinderObject ,
+                                     :LargeObject ,
+                                     :ShapedSizedObject .
+
+
+###  http://example.com/CylinderObject
+:CylinderObject rdf:type owl:Class ;
+                rdfs:subClassOf :ShapedObject .
+
+
+###  http://example.com/CylinderSmallObject
+:CylinderSmallObject rdf:type owl:Class ;
+                     rdfs:subClassOf :CylinderObject ,
+                                     :ShapedSizedObject ,
+                                     :SmallObject .
+
+
+###  http://example.com/GrayCubeLargeObject
+:GrayCubeLargeObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredShapedSizedObject ,
+                                     :CubeLargeObject ,
+                                     :GrayCubeObject ,
+                                     :GrayLargeObject .
+
+
+###  http://example.com/GrayCubeObject
+:GrayCubeObject rdf:type owl:Class ;
+                rdfs:subClassOf :ColoredShapedObject ,
+                                :CubeObject ,
+                                :GrayObject .
+
+
+###  http://example.com/GrayCubeSmallObject
+:GrayCubeSmallObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredShapedSizedObject ,
+                                     :CubeSmallObject ,
+                                     :GrayCubeObject ,
+                                     :GraySmallObject .
+
+
+###  http://example.com/GrayCylinderLargeObject
+:GrayCylinderLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :CylinderLargeObject ,
+                                         :GrayCylinderObject ,
+                                         :GrayLargeObject .
+
+
+###  http://example.com/GrayCylinderObject
+:GrayCylinderObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredShapedObject ,
+                                    :CylinderObject ,
+                                    :GrayObject .
+
+
+###  http://example.com/GrayCylinderSmallObject
+:GrayCylinderSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :CylinderSmallObject ,
+                                         :GrayCylinderObject ,
+                                         :GraySmallObject .
+
+
+###  http://example.com/GrayLargeObject
+:GrayLargeObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredSizedObject ,
+                                 :GrayObject ,
+                                 :LargeObject .
+
+
+###  http://example.com/GrayMetallicCubeLargeObject
+:GrayMetallicCubeLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :GrayCubeLargeObject ,
+                                             :GrayMetallicCubeObject ,
+                                             :GrayMetallicLargeObject ,
+                                             :MetallicCubeLargeObject .
+
+
+###  http://example.com/GrayMetallicCubeObject
+:GrayMetallicCubeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                        :GrayCubeObject ,
+                                        :GrayMetallicObject ,
+                                        :MetallicCubeObject .
+
+
+###  http://example.com/GrayMetallicCubeSmallObject
+:GrayMetallicCubeSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :GrayCubeSmallObject ,
+                                             :GrayMetallicCubeObject ,
+                                             :GrayMetallicSmallObject ,
+                                             :MetallicCubeSmallObject .
+
+
+###  http://example.com/GrayMetallicCylinderLargeObject
+:GrayMetallicCylinderLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :GrayCylinderLargeObject ,
+                                                 :GrayMetallicCylinderObject ,
+                                                 :GrayMetallicLargeObject ,
+                                                 :MetallicCylinderLargeObject .
+
+
+###  http://example.com/GrayMetallicCylinderObject
+:GrayMetallicCylinderObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                            :GrayCylinderObject ,
+                                            :GrayMetallicObject ,
+                                            :MetallicCylinderObject .
+
+
+###  http://example.com/GrayMetallicCylinderSmallObject
+:GrayMetallicCylinderSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :GrayCylinderSmallObject ,
+                                                 :GrayMetallicCylinderObject ,
+                                                 :GrayMetallicSmallObject ,
+                                                 :MetallicCylinderSmallObject .
+
+
+###  http://example.com/GrayMetallicLargeObject
+:GrayMetallicLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :GrayLargeObject ,
+                                         :GrayMetallicObject ,
+                                         :MetallicLargeObject .
+
+
+###  http://example.com/GrayMetallicObject
+:GrayMetallicObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredMaterialObject ,
+                                    :GrayObject ,
+                                    :MetallicObject .
+
+
+###  http://example.com/GrayMetallicSmallObject
+:GrayMetallicSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :GrayMetallicObject ,
+                                         :GraySmallObject ,
+                                         :MetallicSmallObject .
+
+
+###  http://example.com/GrayMetallicSphereLargeObject
+:GrayMetallicSphereLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :GrayMetallicLargeObject ,
+                                               :GrayMetallicSphereObject ,
+                                               :GraySphereLargeObject ,
+                                               :MetallicSphereLargeObject .
+
+
+###  http://example.com/GrayMetallicSphereObject
+:GrayMetallicSphereObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :GrayMetallicObject ,
+                                          :GraySphereObject ,
+                                          :MetallicSphereObject .
+
+
+###  http://example.com/GrayMetallicSphereSmallObject
+:GrayMetallicSphereSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :GrayMetallicSmallObject ,
+                                               :GrayMetallicSphereObject ,
+                                               :GraySphereSmallObject ,
+                                               :MetallicSphereSmallObject .
+
+
+###  http://example.com/GrayObject
+:GrayObject rdf:type owl:Class ;
+            rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/GrayRubberCubeLargeObject
+:GrayRubberCubeLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                           :GrayCubeLargeObject ,
+                                           :GrayRubberCubeObject ,
+                                           :GrayRubberLargeObject ,
+                                           :RubberCubeLargeObject .
+
+
+###  http://example.com/GrayRubberCubeObject
+:GrayRubberCubeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                      :GrayCubeObject ,
+                                      :GrayRubberObject ,
+                                      :RubberCubeObject .
+
+
+###  http://example.com/GrayRubberCubeSmallObject
+:GrayRubberCubeSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                           :GrayCubeSmallObject ,
+                                           :GrayRubberCubeObject ,
+                                           :GrayRubberSmallObject ,
+                                           :RubberCubeSmallObject .
+
+
+###  http://example.com/GrayRubberCylinderLargeObject
+:GrayRubberCylinderLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :GrayCylinderLargeObject ,
+                                               :GrayRubberCylinderObject ,
+                                               :GrayRubberLargeObject ,
+                                               :RubberCylinderLargeObject .
+
+
+###  http://example.com/GrayRubberCylinderObject
+:GrayRubberCylinderObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :GrayCylinderObject ,
+                                          :GrayRubberObject ,
+                                          :RubberCylinderObject .
+
+
+###  http://example.com/GrayRubberCylinderSmallObject
+:GrayRubberCylinderSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :GrayCylinderSmallObject ,
+                                               :GrayRubberCylinderObject ,
+                                               :GrayRubberSmallObject ,
+                                               :RubberCylinderSmallObject .
+
+
+###  http://example.com/GrayRubberLargeObject
+:GrayRubberLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                       :GrayLargeObject ,
+                                       :GrayRubberObject ,
+                                       :RubberLargeObject .
+
+
+###  http://example.com/GrayRubberObject
+:GrayRubberObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredMaterialObject ,
+                                  :GrayObject ,
+                                  :RubberObject .
+
+
+###  http://example.com/GrayRubberSmallObject
+:GrayRubberSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                       :GrayRubberObject ,
+                                       :GraySmallObject ,
+                                       :RubberSmallObject .
+
+
+###  http://example.com/GrayRubberSphereLargeObject
+:GrayRubberSphereLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :GrayRubberLargeObject ,
+                                             :GrayRubberSphereObject ,
+                                             :GraySphereLargeObject ,
+                                             :RubberSphereLargeObject .
+
+
+###  http://example.com/GrayRubberSphereObject
+:GrayRubberSphereObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                        :GrayRubberObject ,
+                                        :GraySphereObject ,
+                                        :RubberSphereObject .
+
+
+###  http://example.com/GrayRubberSphereSmallObject
+:GrayRubberSphereSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :GrayRubberSmallObject ,
+                                             :GrayRubberSphereObject ,
+                                             :GraySphereSmallObject ,
+                                             :RubberSphereSmallObject .
+
+
+###  http://example.com/GraySmallObject
+:GraySmallObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredSizedObject ,
+                                 :GrayObject ,
+                                 :SmallObject .
+
+
+###  http://example.com/GraySphereLargeObject
+:GraySphereLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :GrayLargeObject ,
+                                       :GraySphereObject ,
+                                       :SphereLargeObject .
+
+
+###  http://example.com/GraySphereObject
+:GraySphereObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredShapedObject ,
+                                  :GrayObject ,
+                                  :SphereObject .
+
+
+###  http://example.com/GraySphereSmallObject
+:GraySphereSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :GraySmallObject ,
+                                       :GraySphereObject ,
+                                       :SphereSmallObject .
+
+
+###  http://example.com/GreenCubeLargeObject
+:GreenCubeLargeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredShapedSizedObject ,
+                                      :CubeLargeObject ,
+                                      :GreenCubeObject ,
+                                      :GreenLargeObject .
+
+
+###  http://example.com/GreenCubeObject
+:GreenCubeObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredShapedObject ,
+                                 :CubeObject ,
+                                 :GreenObject .
+
+
+###  http://example.com/GreenCubeSmallObject
+:GreenCubeSmallObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredShapedSizedObject ,
+                                      :CubeSmallObject ,
+                                      :GreenCubeObject ,
+                                      :GreenSmallObject .
+
+
+###  http://example.com/GreenCylinderLargeObject
+:GreenCylinderLargeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredShapedSizedObject ,
+                                          :CylinderLargeObject ,
+                                          :GreenCylinderObject ,
+                                          :GreenLargeObject .
+
+
+###  http://example.com/GreenCylinderObject
+:GreenCylinderObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredShapedObject ,
+                                     :CylinderObject ,
+                                     :GreenObject .
+
+
+###  http://example.com/GreenCylinderSmallObject
+:GreenCylinderSmallObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredShapedSizedObject ,
+                                          :CylinderSmallObject ,
+                                          :GreenCylinderObject ,
+                                          :GreenSmallObject .
+
+
+###  http://example.com/GreenLargeObject
+:GreenLargeObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredSizedObject ,
+                                  :GreenObject ,
+                                  :LargeObject .
+
+
+###  http://example.com/GreenMetallicCubeLargeObject
+:GreenMetallicCubeLargeObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :GreenCubeLargeObject ,
+                                              :GreenMetallicCubeObject ,
+                                              :GreenMetallicLargeObject ,
+                                              :MetallicCubeLargeObject .
+
+
+###  http://example.com/GreenMetallicCubeObject
+:GreenMetallicCubeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                         :GreenCubeObject ,
+                                         :GreenMetallicObject ,
+                                         :MetallicCubeObject .
+
+
+###  http://example.com/GreenMetallicCubeSmallObject
+:GreenMetallicCubeSmallObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :GreenCubeSmallObject ,
+                                              :GreenMetallicCubeObject ,
+                                              :GreenMetallicSmallObject ,
+                                              :MetallicCubeSmallObject .
+
+
+###  http://example.com/GreenMetallicCylinderLargeObject
+:GreenMetallicCylinderLargeObject rdf:type owl:Class ;
+                                  rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                  :GreenCylinderLargeObject ,
+                                                  :GreenMetallicCylinderObject ,
+                                                  :GreenMetallicLargeObject ,
+                                                  :MetallicCylinderLargeObject .
+
+
+###  http://example.com/GreenMetallicCylinderObject
+:GreenMetallicCylinderObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                             :GreenCylinderObject ,
+                                             :GreenMetallicObject ,
+                                             :MetallicCylinderObject .
+
+
+###  http://example.com/GreenMetallicCylinderSmallObject
+:GreenMetallicCylinderSmallObject rdf:type owl:Class ;
+                                  rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                  :GreenCylinderSmallObject ,
+                                                  :GreenMetallicCylinderObject ,
+                                                  :GreenMetallicSmallObject ,
+                                                  :MetallicCylinderSmallObject .
+
+
+###  http://example.com/GreenMetallicLargeObject
+:GreenMetallicLargeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                          :GreenLargeObject ,
+                                          :GreenMetallicObject ,
+                                          :MetallicLargeObject .
+
+
+###  http://example.com/GreenMetallicObject
+:GreenMetallicObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredMaterialObject ,
+                                     :GreenObject ,
+                                     :MetallicObject .
+
+
+###  http://example.com/GreenMetallicSmallObject
+:GreenMetallicSmallObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                          :GreenMetallicObject ,
+                                          :GreenSmallObject ,
+                                          :MetallicSmallObject .
+
+
+###  http://example.com/GreenMetallicSphereLargeObject
+:GreenMetallicSphereLargeObject rdf:type owl:Class ;
+                                rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                :GreenMetallicLargeObject ,
+                                                :GreenMetallicSphereObject ,
+                                                :GreenSphereLargeObject ,
+                                                :MetallicSphereLargeObject .
+
+
+###  http://example.com/GreenMetallicSphereObject
+:GreenMetallicSphereObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                           :GreenMetallicObject ,
+                                           :GreenSphereObject ,
+                                           :MetallicSphereObject .
+
+
+###  http://example.com/GreenMetallicSphereSmallObject
+:GreenMetallicSphereSmallObject rdf:type owl:Class ;
+                                rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                :GreenMetallicSmallObject ,
+                                                :GreenMetallicSphereObject ,
+                                                :GreenSphereSmallObject ,
+                                                :MetallicSphereSmallObject .
+
+
+###  http://example.com/GreenObject
+:GreenObject rdf:type owl:Class ;
+             rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/GreenRubberCubeLargeObject
+:GreenRubberCubeLargeObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                            :GreenCubeLargeObject ,
+                                            :GreenRubberCubeObject ,
+                                            :GreenRubberLargeObject ,
+                                            :RubberCubeLargeObject .
+
+
+###  http://example.com/GreenRubberCubeObject
+:GreenRubberCubeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                       :GreenCubeObject ,
+                                       :GreenRubberObject ,
+                                       :RubberCubeObject .
+
+
+###  http://example.com/GreenRubberCubeSmallObject
+:GreenRubberCubeSmallObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                            :GreenCubeSmallObject ,
+                                            :GreenRubberCubeObject ,
+                                            :GreenRubberSmallObject ,
+                                            :RubberCubeSmallObject .
+
+
+###  http://example.com/GreenRubberCylinderLargeObject
+:GreenRubberCylinderLargeObject rdf:type owl:Class ;
+                                rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                :GreenCylinderLargeObject ,
+                                                :GreenRubberCylinderObject ,
+                                                :GreenRubberLargeObject ,
+                                                :RubberCylinderLargeObject .
+
+
+###  http://example.com/GreenRubberCylinderObject
+:GreenRubberCylinderObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                           :GreenCylinderObject ,
+                                           :GreenRubberObject ,
+                                           :RubberCylinderObject .
+
+
+###  http://example.com/GreenRubberCylinderSmallObject
+:GreenRubberCylinderSmallObject rdf:type owl:Class ;
+                                rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                :GreenCylinderSmallObject ,
+                                                :GreenRubberCylinderObject ,
+                                                :GreenRubberSmallObject ,
+                                                :RubberCylinderSmallObject .
+
+
+###  http://example.com/GreenRubberLargeObject
+:GreenRubberLargeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                        :GreenLargeObject ,
+                                        :GreenRubberObject ,
+                                        :RubberLargeObject .
+
+
+###  http://example.com/GreenRubberObject
+:GreenRubberObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredMaterialObject ,
+                                   :GreenObject ,
+                                   :RubberObject .
+
+
+###  http://example.com/GreenRubberSmallObject
+:GreenRubberSmallObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                        :GreenRubberObject ,
+                                        :GreenSmallObject ,
+                                        :RubberSmallObject .
+
+
+###  http://example.com/GreenRubberSphereLargeObject
+:GreenRubberSphereLargeObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :GreenRubberLargeObject ,
+                                              :GreenRubberSphereObject ,
+                                              :GreenSphereLargeObject ,
+                                              :RubberSphereLargeObject .
+
+
+###  http://example.com/GreenRubberSphereObject
+:GreenRubberSphereObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                         :GreenRubberObject ,
+                                         :GreenSphereObject ,
+                                         :RubberSphereObject .
+
+
+###  http://example.com/GreenRubberSphereSmallObject
+:GreenRubberSphereSmallObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :GreenRubberSmallObject ,
+                                              :GreenRubberSphereObject ,
+                                              :GreenSphereSmallObject ,
+                                              :RubberSphereSmallObject .
+
+
+###  http://example.com/GreenSmallObject
+:GreenSmallObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredSizedObject ,
+                                  :GreenObject ,
+                                  :SmallObject .
+
+
+###  http://example.com/GreenSphereLargeObject
+:GreenSphereLargeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredShapedSizedObject ,
+                                        :GreenLargeObject ,
+                                        :GreenSphereObject ,
+                                        :SphereLargeObject .
+
+
+###  http://example.com/GreenSphereObject
+:GreenSphereObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredShapedObject ,
+                                   :GreenObject ,
+                                   :SphereObject .
+
+
+###  http://example.com/GreenSphereSmallObject
+:GreenSphereSmallObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredShapedSizedObject ,
+                                        :GreenSmallObject ,
+                                        :GreenSphereObject ,
+                                        :SphereSmallObject .
+
+
+###  http://example.com/LargeObject
+:LargeObject rdf:type owl:Class ;
+             rdfs:subClassOf :SizedObject .
+
+
+###  http://example.com/MaterialObject
+:MaterialObject rdf:type owl:Class ;
+                rdfs:subClassOf :Object .
+
+
+###  http://example.com/MaterialShapedObject
+:MaterialShapedObject rdf:type owl:Class ;
+                      rdfs:subClassOf :MaterialObject ,
+                                      :ShapedObject .
+
+
+###  http://example.com/MaterialShapedSizedObject
+:MaterialShapedSizedObject rdf:type owl:Class ;
+                           rdfs:subClassOf :MaterialShapedObject ,
+                                           :MaterialSizedObject ,
+                                           :ShapedSizedObject .
+
+
+###  http://example.com/MaterialSizedObject
+:MaterialSizedObject rdf:type owl:Class ;
+                     rdfs:subClassOf :MaterialObject ,
+                                     :SizedObject .
+
+
+###  http://example.com/MetallicCubeLargeObject
+:MetallicCubeLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :CubeLargeObject ,
+                                         :MaterialShapedSizedObject ,
+                                         :MetallicCubeObject ,
+                                         :MetallicLargeObject .
+
+
+###  http://example.com/MetallicCubeObject
+:MetallicCubeObject rdf:type owl:Class ;
+                    rdfs:subClassOf :CubeObject ,
+                                    :MaterialShapedObject ,
+                                    :MetallicObject .
+
+
+###  http://example.com/MetallicCubeSmallObject
+:MetallicCubeSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :CubeSmallObject ,
+                                         :MaterialShapedSizedObject ,
+                                         :MetallicCubeObject ,
+                                         :MetallicSmallObject .
+
+
+###  http://example.com/MetallicCylinderLargeObject
+:MetallicCylinderLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :CylinderLargeObject ,
+                                             :MaterialShapedSizedObject ,
+                                             :MetallicCylinderObject ,
+                                             :MetallicLargeObject .
+
+
+###  http://example.com/MetallicCylinderObject
+:MetallicCylinderObject rdf:type owl:Class ;
+                        rdfs:subClassOf :CylinderObject ,
+                                        :MaterialShapedObject ,
+                                        :MetallicObject .
+
+
+###  http://example.com/MetallicCylinderSmallObject
+:MetallicCylinderSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :CylinderSmallObject ,
+                                             :MaterialShapedSizedObject ,
+                                             :MetallicCylinderObject ,
+                                             :MetallicSmallObject .
+
+
+###  http://example.com/MetallicLargeObject
+:MetallicLargeObject rdf:type owl:Class ;
+                     rdfs:subClassOf :LargeObject ,
+                                     :MaterialSizedObject ,
+                                     :MetallicObject .
+
+
+###  http://example.com/MetallicObject
+:MetallicObject rdf:type owl:Class ;
+                rdfs:subClassOf :MaterialObject .
+
+
+###  http://example.com/MetallicSmallObject
+:MetallicSmallObject rdf:type owl:Class ;
+                     rdfs:subClassOf :MaterialSizedObject ,
+                                     :MetallicObject ,
+                                     :SmallObject .
+
+
+###  http://example.com/MetallicSphereLargeObject
+:MetallicSphereLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :MaterialShapedSizedObject ,
+                                           :MetallicLargeObject ,
+                                           :MetallicSphereObject ,
+                                           :SphereLargeObject .
+
+
+###  http://example.com/MetallicSphereObject
+:MetallicSphereObject rdf:type owl:Class ;
+                      rdfs:subClassOf :MaterialShapedObject ,
+                                      :MetallicObject ,
+                                      :SphereObject .
+
+
+###  http://example.com/MetallicSphereSmallObject
+:MetallicSphereSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :MaterialShapedSizedObject ,
+                                           :MetallicSmallObject ,
+                                           :MetallicSphereObject ,
+                                           :SphereSmallObject .
+
+
+###  http://example.com/Object
+:Object rdf:type owl:Class .
+
+
+###  http://example.com/PurpleCubeLargeObject
+:PurpleCubeLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :CubeLargeObject ,
+                                       :PurpleCubeObject ,
+                                       :PurpleLargeObject .
+
+
+###  http://example.com/PurpleCubeObject
+:PurpleCubeObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredShapedObject ,
+                                  :CubeObject ,
+                                  :PurpleObject .
+
+
+###  http://example.com/PurpleCubeSmallObject
+:PurpleCubeSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :CubeSmallObject ,
+                                       :PurpleCubeObject ,
+                                       :PurpleSmallObject .
+
+
+###  http://example.com/PurpleCylinderLargeObject
+:PurpleCylinderLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredShapedSizedObject ,
+                                           :CylinderLargeObject ,
+                                           :PurpleCylinderObject ,
+                                           :PurpleLargeObject .
+
+
+###  http://example.com/PurpleCylinderObject
+:PurpleCylinderObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredShapedObject ,
+                                      :CylinderObject ,
+                                      :PurpleObject .
+
+
+###  http://example.com/PurpleCylinderSmallObject
+:PurpleCylinderSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredShapedSizedObject ,
+                                           :CylinderSmallObject ,
+                                           :PurpleCylinderObject ,
+                                           :PurpleSmallObject .
+
+
+###  http://example.com/PurpleLargeObject
+:PurpleLargeObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredSizedObject ,
+                                   :LargeObject ,
+                                   :PurpleObject .
+
+
+###  http://example.com/PurpleMetallicCubeLargeObject
+:PurpleMetallicCubeLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :MetallicCubeLargeObject ,
+                                               :PurpleCubeLargeObject ,
+                                               :PurpleMetallicCubeObject ,
+                                               :PurpleMetallicLargeObject .
+
+
+###  http://example.com/PurpleMetallicCubeObject
+:PurpleMetallicCubeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :MetallicCubeObject ,
+                                          :PurpleCubeObject ,
+                                          :PurpleMetallicObject .
+
+
+###  http://example.com/PurpleMetallicCubeSmallObject
+:PurpleMetallicCubeSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :MetallicCubeSmallObject ,
+                                               :PurpleCubeSmallObject ,
+                                               :PurpleMetallicCubeObject ,
+                                               :PurpleMetallicSmallObject .
+
+
+###  http://example.com/PurpleMetallicCylinderLargeObject
+:PurpleMetallicCylinderLargeObject rdf:type owl:Class ;
+                                   rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                   :MetallicCylinderLargeObject ,
+                                                   :PurpleCylinderLargeObject ,
+                                                   :PurpleMetallicCylinderObject ,
+                                                   :PurpleMetallicLargeObject .
+
+
+###  http://example.com/PurpleMetallicCylinderObject
+:PurpleMetallicCylinderObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                              :MetallicCylinderObject ,
+                                              :PurpleCylinderObject ,
+                                              :PurpleMetallicObject .
+
+
+###  http://example.com/PurpleMetallicCylinderSmallObject
+:PurpleMetallicCylinderSmallObject rdf:type owl:Class ;
+                                   rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                   :MetallicCylinderSmallObject ,
+                                                   :PurpleCylinderSmallObject ,
+                                                   :PurpleMetallicCylinderObject ,
+                                                   :PurpleMetallicSmallObject .
+
+
+###  http://example.com/PurpleMetallicLargeObject
+:PurpleMetallicLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                           :MetallicLargeObject ,
+                                           :PurpleLargeObject ,
+                                           :PurpleMetallicObject .
+
+
+###  http://example.com/PurpleMetallicObject
+:PurpleMetallicObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredMaterialObject ,
+                                      :MetallicObject ,
+                                      :PurpleObject .
+
+
+###  http://example.com/PurpleMetallicSmallObject
+:PurpleMetallicSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                           :MetallicSmallObject ,
+                                           :PurpleMetallicObject ,
+                                           :PurpleSmallObject .
+
+
+###  http://example.com/PurpleMetallicSphereLargeObject
+:PurpleMetallicSphereLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :MetallicSphereLargeObject ,
+                                                 :PurpleMetallicLargeObject ,
+                                                 :PurpleMetallicSphereObject ,
+                                                 :PurpleSphereLargeObject .
+
+
+###  http://example.com/PurpleMetallicSphereObject
+:PurpleMetallicSphereObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                            :MetallicSphereObject ,
+                                            :PurpleMetallicObject ,
+                                            :PurpleSphereObject .
+
+
+###  http://example.com/PurpleMetallicSphereSmallObject
+:PurpleMetallicSphereSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :MetallicSphereSmallObject ,
+                                                 :PurpleMetallicSmallObject ,
+                                                 :PurpleMetallicSphereObject ,
+                                                 :PurpleSphereSmallObject .
+
+
+###  http://example.com/PurpleObject
+:PurpleObject rdf:type owl:Class ;
+              rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/PurpleRubberCubeLargeObject
+:PurpleRubberCubeLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :PurpleCubeLargeObject ,
+                                             :PurpleRubberCubeObject ,
+                                             :PurpleRubberLargeObject ,
+                                             :RubberCubeLargeObject .
+
+
+###  http://example.com/PurpleRubberCubeObject
+:PurpleRubberCubeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                        :PurpleCubeObject ,
+                                        :PurpleRubberObject ,
+                                        :RubberCubeObject .
+
+
+###  http://example.com/PurpleRubberCubeSmallObject
+:PurpleRubberCubeSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :PurpleCubeSmallObject ,
+                                             :PurpleRubberCubeObject ,
+                                             :PurpleRubberSmallObject ,
+                                             :RubberCubeSmallObject .
+
+
+###  http://example.com/PurpleRubberCylinderLargeObject
+:PurpleRubberCylinderLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :PurpleCylinderLargeObject ,
+                                                 :PurpleRubberCylinderObject ,
+                                                 :PurpleRubberLargeObject ,
+                                                 :RubberCylinderLargeObject .
+
+
+###  http://example.com/PurpleRubberCylinderObject
+:PurpleRubberCylinderObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                            :PurpleCylinderObject ,
+                                            :PurpleRubberObject ,
+                                            :RubberCylinderObject .
+
+
+###  http://example.com/PurpleRubberCylinderSmallObject
+:PurpleRubberCylinderSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :PurpleCylinderSmallObject ,
+                                                 :PurpleRubberCylinderObject ,
+                                                 :PurpleRubberSmallObject ,
+                                                 :RubberCylinderSmallObject .
+
+
+###  http://example.com/PurpleRubberLargeObject
+:PurpleRubberLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :PurpleLargeObject ,
+                                         :PurpleRubberObject ,
+                                         :RubberLargeObject .
+
+
+###  http://example.com/PurpleRubberObject
+:PurpleRubberObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredMaterialObject ,
+                                    :PurpleObject ,
+                                    :RubberObject .
+
+
+###  http://example.com/PurpleRubberSmallObject
+:PurpleRubberSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :PurpleRubberObject ,
+                                         :PurpleSmallObject ,
+                                         :RubberSmallObject .
+
+
+###  http://example.com/PurpleRubberSphereLargeObject
+:PurpleRubberSphereLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :PurpleRubberLargeObject ,
+                                               :PurpleRubberSphereObject ,
+                                               :PurpleSphereLargeObject ,
+                                               :RubberSphereLargeObject .
+
+
+###  http://example.com/PurpleRubberSphereObject
+:PurpleRubberSphereObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :PurpleRubberObject ,
+                                          :PurpleSphereObject ,
+                                          :RubberSphereObject .
+
+
+###  http://example.com/PurpleRubberSphereSmallObject
+:PurpleRubberSphereSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :PurpleRubberSmallObject ,
+                                               :PurpleRubberSphereObject ,
+                                               :PurpleSphereSmallObject ,
+                                               :RubberSphereSmallObject .
+
+
+###  http://example.com/PurpleSmallObject
+:PurpleSmallObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredSizedObject ,
+                                   :PurpleObject ,
+                                   :SmallObject .
+
+
+###  http://example.com/PurpleSphereLargeObject
+:PurpleSphereLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :PurpleLargeObject ,
+                                         :PurpleSphereObject ,
+                                         :SphereLargeObject .
+
+
+###  http://example.com/PurpleSphereObject
+:PurpleSphereObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredShapedObject ,
+                                    :PurpleObject ,
+                                    :SphereObject .
+
+
+###  http://example.com/PurpleSphereSmallObject
+:PurpleSphereSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :PurpleSmallObject ,
+                                         :PurpleSphereObject ,
+                                         :SphereSmallObject .
+
+
+###  http://example.com/RedCubeLargeObject
+:RedCubeLargeObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredShapedSizedObject ,
+                                    :CubeLargeObject ,
+                                    :RedCubeObject ,
+                                    :RedLargeObject .
+
+
+###  http://example.com/RedCubeObject
+:RedCubeObject rdf:type owl:Class ;
+               rdfs:subClassOf :ColoredShapedObject ,
+                               :CubeObject ,
+                               :RedObject .
+
+
+###  http://example.com/RedCubeSmallObject
+:RedCubeSmallObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredShapedSizedObject ,
+                                    :CubeSmallObject ,
+                                    :RedCubeObject ,
+                                    :RedSmallObject .
+
+
+###  http://example.com/RedCylinderLargeObject
+:RedCylinderLargeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredShapedSizedObject ,
+                                        :CylinderLargeObject ,
+                                        :RedCylinderObject ,
+                                        :RedLargeObject .
+
+
+###  http://example.com/RedCylinderObject
+:RedCylinderObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredShapedObject ,
+                                   :CylinderObject ,
+                                   :RedObject .
+
+
+###  http://example.com/RedCylinderSmallObject
+:RedCylinderSmallObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredShapedSizedObject ,
+                                        :CylinderSmallObject ,
+                                        :RedCylinderObject ,
+                                        :RedSmallObject .
+
+
+###  http://example.com/RedLargeObject
+:RedLargeObject rdf:type owl:Class ;
+                rdfs:subClassOf :ColoredSizedObject ,
+                                :LargeObject ,
+                                :RedObject .
+
+
+###  http://example.com/RedMetallicCubeLargeObject
+:RedMetallicCubeLargeObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                            :MetallicCubeLargeObject ,
+                                            :RedCubeLargeObject ,
+                                            :RedMetallicCubeObject ,
+                                            :RedMetallicLargeObject .
+
+
+###  http://example.com/RedMetallicCubeObject
+:RedMetallicCubeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                       :MetallicCubeObject ,
+                                       :RedCubeObject ,
+                                       :RedMetallicObject .
+
+
+###  http://example.com/RedMetallicCubeSmallObject
+:RedMetallicCubeSmallObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                            :MetallicCubeSmallObject ,
+                                            :RedCubeSmallObject ,
+                                            :RedMetallicCubeObject ,
+                                            :RedMetallicSmallObject .
+
+
+###  http://example.com/RedMetallicCylinderLargeObject
+:RedMetallicCylinderLargeObject rdf:type owl:Class ;
+                                rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                :MetallicCylinderLargeObject ,
+                                                :RedCylinderLargeObject ,
+                                                :RedMetallicCylinderObject ,
+                                                :RedMetallicLargeObject .
+
+
+###  http://example.com/RedMetallicCylinderObject
+:RedMetallicCylinderObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                           :MetallicCylinderObject ,
+                                           :RedCylinderObject ,
+                                           :RedMetallicObject .
+
+
+###  http://example.com/RedMetallicCylinderSmallObject
+:RedMetallicCylinderSmallObject rdf:type owl:Class ;
+                                rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                :MetallicCylinderSmallObject ,
+                                                :RedCylinderSmallObject ,
+                                                :RedMetallicCylinderObject ,
+                                                :RedMetallicSmallObject .
+
+
+###  http://example.com/RedMetallicLargeObject
+:RedMetallicLargeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                        :MetallicLargeObject ,
+                                        :RedLargeObject ,
+                                        :RedMetallicObject .
+
+
+###  http://example.com/RedMetallicObject
+:RedMetallicObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredMaterialObject ,
+                                   :MetallicObject ,
+                                   :RedObject .
+
+
+###  http://example.com/RedMetallicSmallObject
+:RedMetallicSmallObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                        :MetallicSmallObject ,
+                                        :RedMetallicObject ,
+                                        :RedSmallObject .
+
+
+###  http://example.com/RedMetallicSphereLargeObject
+:RedMetallicSphereLargeObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :MetallicSphereLargeObject ,
+                                              :RedMetallicLargeObject ,
+                                              :RedMetallicSphereObject ,
+                                              :RedSphereLargeObject .
+
+
+###  http://example.com/RedMetallicSphereObject
+:RedMetallicSphereObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                         :MetallicSphereObject ,
+                                         :RedMetallicObject ,
+                                         :RedSphereObject .
+
+
+###  http://example.com/RedMetallicSphereSmallObject
+:RedMetallicSphereSmallObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :MetallicSphereSmallObject ,
+                                              :RedMetallicSmallObject ,
+                                              :RedMetallicSphereObject ,
+                                              :RedSphereSmallObject .
+
+
+###  http://example.com/RedObject
+:RedObject rdf:type owl:Class ;
+           rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/RedRubberCubeLargeObject
+:RedRubberCubeLargeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                          :RedCubeLargeObject ,
+                                          :RedRubberCubeObject ,
+                                          :RedRubberLargeObject ,
+                                          :RubberCubeLargeObject .
+
+
+###  http://example.com/RedRubberCubeObject
+:RedRubberCubeObject rdf:type owl:Class ;
+                     rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                     :RedCubeObject ,
+                                     :RedRubberObject ,
+                                     :RubberCubeObject .
+
+
+###  http://example.com/RedRubberCubeSmallObject
+:RedRubberCubeSmallObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                          :RedCubeSmallObject ,
+                                          :RedRubberCubeObject ,
+                                          :RedRubberSmallObject ,
+                                          :RubberCubeSmallObject .
+
+
+###  http://example.com/RedRubberCylinderLargeObject
+:RedRubberCylinderLargeObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :RedCylinderLargeObject ,
+                                              :RedRubberCylinderObject ,
+                                              :RedRubberLargeObject ,
+                                              :RubberCylinderLargeObject .
+
+
+###  http://example.com/RedRubberCylinderObject
+:RedRubberCylinderObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                         :RedCylinderObject ,
+                                         :RedRubberObject ,
+                                         :RubberCylinderObject .
+
+
+###  http://example.com/RedRubberCylinderSmallObject
+:RedRubberCylinderSmallObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                              :RedCylinderSmallObject ,
+                                              :RedRubberCylinderObject ,
+                                              :RedRubberSmallObject ,
+                                              :RubberCylinderSmallObject .
+
+
+###  http://example.com/RedRubberLargeObject
+:RedRubberLargeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                      :RedLargeObject ,
+                                      :RedRubberObject ,
+                                      :RubberLargeObject .
+
+
+###  http://example.com/RedRubberObject
+:RedRubberObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredMaterialObject ,
+                                 :RedObject ,
+                                 :RubberObject .
+
+
+###  http://example.com/RedRubberSmallObject
+:RedRubberSmallObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                      :RedRubberObject ,
+                                      :RedSmallObject ,
+                                      :RubberSmallObject .
+
+
+###  http://example.com/RedRubberSphereLargeObject
+:RedRubberSphereLargeObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                            :RedRubberLargeObject ,
+                                            :RedRubberSphereObject ,
+                                            :RedSphereLargeObject ,
+                                            :RubberSphereLargeObject .
+
+
+###  http://example.com/RedRubberSphereObject
+:RedRubberSphereObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                       :RedRubberObject ,
+                                       :RedSphereObject ,
+                                       :RubberSphereObject .
+
+
+###  http://example.com/RedRubberSphereSmallObject
+:RedRubberSphereSmallObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                            :RedRubberSmallObject ,
+                                            :RedRubberSphereObject ,
+                                            :RedSphereSmallObject ,
+                                            :RubberSphereSmallObject .
+
+
+###  http://example.com/RedSmallObject
+:RedSmallObject rdf:type owl:Class ;
+                rdfs:subClassOf :ColoredSizedObject ,
+                                :RedObject ,
+                                :SmallObject .
+
+
+###  http://example.com/RedSphereLargeObject
+:RedSphereLargeObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredShapedSizedObject ,
+                                      :RedLargeObject ,
+                                      :RedSphereObject ,
+                                      :SphereLargeObject .
+
+
+###  http://example.com/RedSphereObject
+:RedSphereObject rdf:type owl:Class ;
+                 rdfs:subClassOf :ColoredShapedObject ,
+                                 :RedObject ,
+                                 :SphereObject .
+
+
+###  http://example.com/RedSphereSmallObject
+:RedSphereSmallObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredShapedSizedObject ,
+                                      :RedSmallObject ,
+                                      :RedSphereObject ,
+                                      :SphereSmallObject .
+
+
+###  http://example.com/RubberCubeLargeObject
+:RubberCubeLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :CubeLargeObject ,
+                                       :MaterialShapedSizedObject ,
+                                       :RubberCubeObject ,
+                                       :RubberLargeObject .
+
+
+###  http://example.com/RubberCubeObject
+:RubberCubeObject rdf:type owl:Class ;
+                  rdfs:subClassOf :CubeObject ,
+                                  :MaterialShapedObject ,
+                                  :RubberObject .
+
+
+###  http://example.com/RubberCubeSmallObject
+:RubberCubeSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :CubeSmallObject ,
+                                       :MaterialShapedSizedObject ,
+                                       :RubberCubeObject ,
+                                       :RubberSmallObject .
+
+
+###  http://example.com/RubberCylinderLargeObject
+:RubberCylinderLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :CylinderLargeObject ,
+                                           :MaterialShapedSizedObject ,
+                                           :RubberCylinderObject ,
+                                           :RubberLargeObject .
+
+
+###  http://example.com/RubberCylinderObject
+:RubberCylinderObject rdf:type owl:Class ;
+                      rdfs:subClassOf :CylinderObject ,
+                                      :MaterialShapedObject ,
+                                      :RubberObject .
+
+
+###  http://example.com/RubberCylinderSmallObject
+:RubberCylinderSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :CylinderSmallObject ,
+                                           :MaterialShapedSizedObject ,
+                                           :RubberCylinderObject ,
+                                           :RubberSmallObject .
+
+
+###  http://example.com/RubberLargeObject
+:RubberLargeObject rdf:type owl:Class ;
+                   rdfs:subClassOf :LargeObject ,
+                                   :MaterialSizedObject ,
+                                   :RubberObject .
+
+
+###  http://example.com/RubberObject
+:RubberObject rdf:type owl:Class ;
+              rdfs:subClassOf :MaterialObject .
+
+
+###  http://example.com/RubberSmallObject
+:RubberSmallObject rdf:type owl:Class ;
+                   rdfs:subClassOf :MaterialSizedObject ,
+                                   :RubberObject ,
+                                   :SmallObject .
+
+
+###  http://example.com/RubberSphereLargeObject
+:RubberSphereLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :MaterialShapedSizedObject ,
+                                         :RubberLargeObject ,
+                                         :RubberSphereObject ,
+                                         :SphereLargeObject .
+
+
+###  http://example.com/RubberSphereObject
+:RubberSphereObject rdf:type owl:Class ;
+                    rdfs:subClassOf :MaterialShapedObject ,
+                                    :RubberObject ,
+                                    :SphereObject .
+
+
+###  http://example.com/RubberSphereSmallObject
+:RubberSphereSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :MaterialShapedSizedObject ,
+                                         :RubberSmallObject ,
+                                         :RubberSphereObject ,
+                                         :SphereSmallObject .
+
+
+###  http://example.com/ShapedObject
+:ShapedObject rdf:type owl:Class ;
+              rdfs:subClassOf :Object .
+
+
+###  http://example.com/ShapedSizedObject
+:ShapedSizedObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ShapedObject ,
+                                   :SizedObject .
+
+
+###  http://example.com/SizedObject
+:SizedObject rdf:type owl:Class ;
+             rdfs:subClassOf :Object .
+
+
+###  http://example.com/SmallObject
+:SmallObject rdf:type owl:Class ;
+             rdfs:subClassOf :SizedObject .
+
+
+###  http://example.com/SphereLargeObject
+:SphereLargeObject rdf:type owl:Class ;
+                   rdfs:subClassOf :LargeObject ,
+                                   :ShapedSizedObject ,
+                                   :SphereObject .
+
+
+###  http://example.com/SphereObject
+:SphereObject rdf:type owl:Class ;
+              rdfs:subClassOf :ShapedObject .
+
+
+###  http://example.com/SphereSmallObject
+:SphereSmallObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ShapedSizedObject ,
+                                   :SmallObject ,
+                                   :SphereObject .
+
+
+###  http://example.com/YellowCubeLargeObject
+:YellowCubeLargeObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :CubeLargeObject ,
+                                       :YellowCubeObject ,
+                                       :YellowLargeObject .
+
+
+###  http://example.com/YellowCubeObject
+:YellowCubeObject rdf:type owl:Class ;
+                  rdfs:subClassOf :ColoredShapedObject ,
+                                  :CubeObject ,
+                                  :YellowObject .
+
+
+###  http://example.com/YellowCubeSmallObject
+:YellowCubeSmallObject rdf:type owl:Class ;
+                       rdfs:subClassOf :ColoredShapedSizedObject ,
+                                       :CubeSmallObject ,
+                                       :YellowCubeObject ,
+                                       :YellowSmallObject .
+
+
+###  http://example.com/YellowCylinderLargeObject
+:YellowCylinderLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredShapedSizedObject ,
+                                           :CylinderLargeObject ,
+                                           :YellowCylinderObject ,
+                                           :YellowLargeObject .
+
+
+###  http://example.com/YellowCylinderObject
+:YellowCylinderObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredShapedObject ,
+                                      :CylinderObject ,
+                                      :YellowObject .
+
+
+###  http://example.com/YellowCylinderSmallObject
+:YellowCylinderSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredShapedSizedObject ,
+                                           :CylinderSmallObject ,
+                                           :YellowCylinderObject ,
+                                           :YellowSmallObject .
+
+
+###  http://example.com/YellowLargeObject
+:YellowLargeObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredSizedObject ,
+                                   :LargeObject ,
+                                   :YellowObject .
+
+
+###  http://example.com/YellowMetallicCubeLargeObject
+:YellowMetallicCubeLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :MetallicCubeLargeObject ,
+                                               :YellowCubeLargeObject ,
+                                               :YellowMetallicCubeObject ,
+                                               :YellowMetallicLargeObject .
+
+
+###  http://example.com/YellowMetallicCubeObject
+:YellowMetallicCubeObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :MetallicCubeObject ,
+                                          :YellowCubeObject ,
+                                          :YellowMetallicObject .
+
+
+###  http://example.com/YellowMetallicCubeSmallObject
+:YellowMetallicCubeSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :MetallicCubeSmallObject ,
+                                               :YellowCubeSmallObject ,
+                                               :YellowMetallicCubeObject ,
+                                               :YellowMetallicSmallObject .
+
+
+###  http://example.com/YellowMetallicCylinderLargeObject
+:YellowMetallicCylinderLargeObject rdf:type owl:Class ;
+                                   rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                   :MetallicCylinderLargeObject ,
+                                                   :YellowCylinderLargeObject ,
+                                                   :YellowMetallicCylinderObject ,
+                                                   :YellowMetallicLargeObject .
+
+
+###  http://example.com/YellowMetallicCylinderObject
+:YellowMetallicCylinderObject rdf:type owl:Class ;
+                              rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                              :MetallicCylinderObject ,
+                                              :YellowCylinderObject ,
+                                              :YellowMetallicObject .
+
+
+###  http://example.com/YellowMetallicCylinderSmallObject
+:YellowMetallicCylinderSmallObject rdf:type owl:Class ;
+                                   rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                   :MetallicCylinderSmallObject ,
+                                                   :YellowCylinderSmallObject ,
+                                                   :YellowMetallicCylinderObject ,
+                                                   :YellowMetallicSmallObject .
+
+
+###  http://example.com/YellowMetallicLargeObject
+:YellowMetallicLargeObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                           :MetallicLargeObject ,
+                                           :YellowLargeObject ,
+                                           :YellowMetallicObject .
+
+
+###  http://example.com/YellowMetallicObject
+:YellowMetallicObject rdf:type owl:Class ;
+                      rdfs:subClassOf :ColoredMaterialObject ,
+                                      :MetallicObject ,
+                                      :YellowObject .
+
+
+###  http://example.com/YellowMetallicSmallObject
+:YellowMetallicSmallObject rdf:type owl:Class ;
+                           rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                           :MetallicSmallObject ,
+                                           :YellowMetallicObject ,
+                                           :YellowSmallObject .
+
+
+###  http://example.com/YellowMetallicSphereLargeObject
+:YellowMetallicSphereLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :MetallicSphereLargeObject ,
+                                                 :YellowMetallicLargeObject ,
+                                                 :YellowMetallicSphereObject ,
+                                                 :YellowSphereLargeObject .
+
+
+###  http://example.com/YellowMetallicSphereObject
+:YellowMetallicSphereObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                            :MetallicSphereObject ,
+                                            :YellowMetallicObject ,
+                                            :YellowSphereObject .
+
+
+###  http://example.com/YellowMetallicSphereSmallObject
+:YellowMetallicSphereSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :MetallicSphereSmallObject ,
+                                                 :YellowMetallicSmallObject ,
+                                                 :YellowMetallicSphereObject ,
+                                                 :YellowSphereSmallObject .
+
+
+###  http://example.com/YellowObject
+:YellowObject rdf:type owl:Class ;
+              rdfs:subClassOf :ColoredObject .
+
+
+###  http://example.com/YellowRubberCubeLargeObject
+:YellowRubberCubeLargeObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :RubberCubeLargeObject ,
+                                             :YellowCubeLargeObject ,
+                                             :YellowRubberCubeObject ,
+                                             :YellowRubberLargeObject .
+
+
+###  http://example.com/YellowRubberCubeObject
+:YellowRubberCubeObject rdf:type owl:Class ;
+                        rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                        :RubberCubeObject ,
+                                        :YellowCubeObject ,
+                                        :YellowRubberObject .
+
+
+###  http://example.com/YellowRubberCubeSmallObject
+:YellowRubberCubeSmallObject rdf:type owl:Class ;
+                             rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                             :RubberCubeSmallObject ,
+                                             :YellowCubeSmallObject ,
+                                             :YellowRubberCubeObject ,
+                                             :YellowRubberSmallObject .
+
+
+###  http://example.com/YellowRubberCylinderLargeObject
+:YellowRubberCylinderLargeObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :RubberCylinderLargeObject ,
+                                                 :YellowCylinderLargeObject ,
+                                                 :YellowRubberCylinderObject ,
+                                                 :YellowRubberLargeObject .
+
+
+###  http://example.com/YellowRubberCylinderObject
+:YellowRubberCylinderObject rdf:type owl:Class ;
+                            rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                            :RubberCylinderObject ,
+                                            :YellowCylinderObject ,
+                                            :YellowRubberObject .
+
+
+###  http://example.com/YellowRubberCylinderSmallObject
+:YellowRubberCylinderSmallObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                                 :RubberCylinderSmallObject ,
+                                                 :YellowCylinderSmallObject ,
+                                                 :YellowRubberCylinderObject ,
+                                                 :YellowRubberSmallObject .
+
+
+###  http://example.com/YellowRubberLargeObject
+:YellowRubberLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :RubberLargeObject ,
+                                         :YellowLargeObject ,
+                                         :YellowRubberObject .
+
+
+###  http://example.com/YellowRubberObject
+:YellowRubberObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredMaterialObject ,
+                                    :RubberObject ,
+                                    :YellowObject .
+
+
+###  http://example.com/YellowRubberSmallObject
+:YellowRubberSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredMaterialSizedObject ,
+                                         :RubberSmallObject ,
+                                         :YellowRubberObject ,
+                                         :YellowSmallObject .
+
+
+###  http://example.com/YellowRubberSphereLargeObject
+:YellowRubberSphereLargeObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :RubberSphereLargeObject ,
+                                               :YellowRubberLargeObject ,
+                                               :YellowRubberSphereObject ,
+                                               :YellowSphereLargeObject .
+
+
+###  http://example.com/YellowRubberSphereObject
+:YellowRubberSphereObject rdf:type owl:Class ;
+                          rdfs:subClassOf :ColoredMaterialShapedObject ,
+                                          :RubberSphereObject ,
+                                          :YellowRubberObject ,
+                                          :YellowSphereObject .
+
+
+###  http://example.com/YellowRubberSphereSmallObject
+:YellowRubberSphereSmallObject rdf:type owl:Class ;
+                               rdfs:subClassOf :ColoredMaterialShapedSizedObject ,
+                                               :RubberSphereSmallObject ,
+                                               :YellowRubberSmallObject ,
+                                               :YellowRubberSphereObject ,
+                                               :YellowSphereSmallObject .
+
+
+###  http://example.com/YellowSmallObject
+:YellowSmallObject rdf:type owl:Class ;
+                   rdfs:subClassOf :ColoredSizedObject ,
+                                   :SmallObject ,
+                                   :YellowObject .
+
+
+###  http://example.com/YellowSphereLargeObject
+:YellowSphereLargeObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :SphereLargeObject ,
+                                         :YellowLargeObject ,
+                                         :YellowSphereObject .
+
+
+###  http://example.com/YellowSphereObject
+:YellowSphereObject rdf:type owl:Class ;
+                    rdfs:subClassOf :ColoredShapedObject ,
+                                    :SphereObject ,
+                                    :YellowObject .
+
+
+###  http://example.com/YellowSphereSmallObject
+:YellowSphereSmallObject rdf:type owl:Class ;
+                         rdfs:subClassOf :ColoredShapedSizedObject ,
+                                         :SphereSmallObject ,
+                                         :YellowSmallObject ,
+                                         :YellowSphereObject .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
